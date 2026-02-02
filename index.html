@@ -11,19 +11,44 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ===== ANIMATED BACKGROUND ===== */
 body{
     height:100vh;
     overflow:hidden;
-    background:
-        radial-gradient(circle at top, #00c6ff33, transparent),
-        linear-gradient(120deg, #0f2027, #203a43, #2c5364);
     color:white;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1b2735);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
 }
 
-/* ===== SLIDER WRAPPER ===== */
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== PARTICLES ===== */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 30%, #4fd1ff55 2px, transparent 3px),
+        radial-gradient(circle at 80% 40%, #ffffff44 1.5px, transparent 3px),
+        radial-gradient(circle at 50% 80%, #4fd1ff44 2px, transparent 3px);
+    animation:float 12s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-60px);}
+}
+
+/* ===== SLIDER ===== */
 .slider-wrapper{
     position:relative;
     width:100%;
@@ -31,11 +56,10 @@ body{
     overflow:hidden;
 }
 
-/* ===== SLIDER ===== */
 .slider{
     display:flex;
     height:100%;
-    transition:transform 1s ease-in-out;
+    transition:transform 1s cubic-bezier(.77,0,.18,1);
 }
 
 /* ===== SLIDE ===== */
@@ -54,19 +78,15 @@ body{
     border-radius:30px;
     background:rgba(255,255,255,0.12);
     backdrop-filter:blur(22px);
-    box-shadow:0 30px 80px rgba(0,0,0,0.6);
-    animation:slideFade 1s ease;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        0 0 60px #4fd1ff33;
+    animation:cardIn 1s ease;
 }
 
-@keyframes slideFade{
-    from{
-        opacity:0;
-        transform:translateY(40px) scale(0.96);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+@keyframes cardIn{
+    from{opacity:0; transform:translateY(50px) scale(0.95);}
+    to{opacity:1; transform:translateY(0) scale(1);}
 }
 
 /* ===== TEXT ===== */
@@ -97,7 +117,7 @@ p{
 
 @keyframes pulse{
     0%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+    50%{transform:scale(1.2);}
     100%{transform:scale(1);}
 }
 
@@ -118,6 +138,7 @@ p{
 
 .box:hover{
     transform:translateY(-10px) scale(1.15);
+    box-shadow:0 0 25px #4fd1ff55;
 }
 
 /* ===== CONTROLS ===== */
@@ -160,7 +181,8 @@ p{
 
 .dot.active{
     background:#4fd1ff;
-    transform:scale(1.3);
+    transform:scale(1.4);
+    box-shadow:0 0 10px #4fd1ff;
 }
 
 /* ===== WELCOME ===== */
@@ -179,7 +201,6 @@ p{
 <div class="slider-wrapper">
 <div class="slider" id="slider">
 
-<!-- SLIDE 1 -->
 <div class="slide">
     <div class="card welcome">
         <i class="fas fa-globe icon"></i>
@@ -190,43 +211,39 @@ p{
     </div>
 </div>
 
-<!-- SLIDE 2 -->
 <div class="slide">
     <div class="card">
         <h2><i class="fas fa-network-wired icon"></i>What is IT Infrastructure</h2>
         <p>
-        IT infrastructure is the core foundation of information technology systems.
-        It consists of hardware, software, networks, and supporting services
-        that allow systems to operate efficiently and reliably.
+        IT infrastructure is the backbone of information technology systems.
+        It includes hardware, software, networks, and services
+        that ensure systems operate reliably and efficiently.
         </p>
     </div>
 </div>
 
-<!-- SLIDE 3 -->
 <div class="slide">
     <div class="card">
         <h2><i class="fab fa-github icon"></i>GitHub in IT Infrastructure</h2>
         <p>
-        GitHub is a cloud based platform used to store source code,
-        manage versions, and support collaboration between developers
-        in modern IT environments.
+        GitHub is a cloud based platform that stores source code,
+        manages versions, and enables collaboration
+        in modern software development environments.
         </p>
     </div>
 </div>
 
-<!-- SLIDE 4 -->
 <div class="slide">
     <div class="card">
-        <h2><i class="fas fa-shield-halved icon"></i>IT Infrastructure and Security</h2>
+        <h2><i class="fas fa-shield-halved icon"></i>Infrastructure Security</h2>
         <p>
-        Security protects systems and data from threats such as
-        unauthorized access, data breaches, and cyber attacks.
-        It is a critical component of IT infrastructure.
+        Security protects systems and data from cyber threats,
+        unauthorized access, and data loss.
+        It is essential in connected IT infrastructures.
         </p>
     </div>
 </div>
 
-<!-- SLIDE 5 -->
 <div class="slide">
     <div class="card">
         <h2><i class="fas fa-diagram-project icon"></i>Infrastructure Diagram</h2>
@@ -240,14 +257,13 @@ p{
     </div>
 </div>
 
-<!-- SLIDE 6 -->
 <div class="slide">
     <div class="card">
         <h2><i class="fas fa-lock icon"></i>Risk Management</h2>
         <p>
-        IT risks can be minimized by controlling user access,
-        using strong authentication, updating systems regularly,
-        and performing periodic data backups.
+        IT risks can be minimized through access control,
+        strong authentication, system updates,
+        and regular data backups.
         </p>
         <p style="text-align:center;margin-top:20px">
         Thank you
@@ -258,77 +274,53 @@ p{
 </div>
 </div>
 
-<!-- CONTROLS -->
 <div class="controls">
     <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
     <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
 </div>
 
-<!-- DOTS -->
 <div class="dots" id="dots"></div>
 
 <script>
 let index = 0;
 const slider = document.getElementById("slider");
 const dotsContainer = document.getElementById("dots");
-const totalSlides = document.querySelectorAll(".slide").length;
+const slides = document.querySelectorAll(".slide").length;
 
-/* CREATE DOTS */
-for(let i=0;i<totalSlides;i++){
+/* DOTS */
+for(let i=0;i<slides;i++){
     const dot = document.createElement("span");
     dot.classList.add("dot");
-    if(i === 0) dot.classList.add("active");
-    dot.onclick = ()=>{ index=i; updateSlide(); resetAuto(); };
+    if(i===0) dot.classList.add("active");
+    dot.onclick = ()=>{ index=i; update(); resetAuto(); };
     dotsContainer.appendChild(dot);
 }
 
-function updateSlide(){
-    slider.style.transform = `translateX(-${index * 100}%)`;
+function update(){
+    slider.style.transform = `translateX(-${index*100}%)`;
     document.querySelectorAll(".dot").forEach((d,i)=>{
-        d.classList.toggle("active", i === index);
+        d.classList.toggle("active", i===index);
     });
 }
 
 function nextSlide(){
-    if(index < totalSlides - 1){
-        index++;
-        updateSlide();
-    }
+    if(index < slides-1){ index++; update(); }
 }
 
 function prevSlide(){
-    if(index > 0){
-        index--;
-        updateSlide();
-    }
+    if(index > 0){ index--; update(); }
 }
 
-/* KEYBOARD */
 document.addEventListener("keydown", e=>{
-    if(e.key === "ArrowRight") nextSlide();
-    if(e.key === "ArrowLeft") prevSlide();
+    if(e.key==="ArrowRight") nextSlide();
+    if(e.key==="ArrowLeft") prevSlide();
 });
 
-/* AUTO SLIDE */
-let auto = setInterval(()=>{
-    if(index < totalSlides - 1){
-        nextSlide();
-    } else {
-        index = 0;
-        updateSlide();
-    }
-}, 6000);
-
+/* AUTO */
+let auto=setInterval(()=>{ index=(index+1)%slides; update(); },6000);
 function resetAuto(){
     clearInterval(auto);
-    auto = setInterval(()=>{
-        if(index < totalSlides - 1){
-            nextSlide();
-        } else {
-            index = 0;
-            updateSlide();
-        }
-    }, 6000);
+    auto=setInterval(()=>{ index=(index+1)%slides; update(); },6000);
 }
 </script>
 
