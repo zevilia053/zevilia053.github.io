@@ -2,140 +2,262 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Resume IT Infrastruktur</title>
+<title>IT Infrastruktur Presentation</title>
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+/* ===== BACKGROUND ===== */
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d");
+}
+
+/* ===== SLIDER ===== */
+.slider {
+    display: flex;
+    width: 500%;
+    height: 100vh;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    padding: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== CARD ===== */
+.card {
     max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== TEXT ===== */
+h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
 }
 
 h2 {
-    color: #2c3e50;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 8px;
-}
-
-h3 {
-    color: #2980b9;
-    margin-top: 30px;
+    color: #ffd369;
+    margin-bottom: 20px;
 }
 
 p {
-    line-height: 1.8;
-    color: #333;
+    line-height: 2;
+    font-size: 17px;
+    text-align: justify;
 }
 
+/* ===== ICON ===== */
+.icon {
+    color: #ffd369;
+    margin-right: 12px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* ===== DIAGRAM ===== */
 .diagram {
-    margin: 30px 0;
-    padding: 20px;
-    background: #ecf3ff;
-    border-radius: 8px;
+    margin-top: 25px;
     text-align: center;
 }
 
 .box {
     display: inline-block;
-    padding: 12px 18px;
+    padding: 14px 22px;
     margin: 10px;
-    background: #3498db;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.25);
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-8px) scale(1.1);
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls button {
+    background: rgba(255,255,255,0.25);
+    border: none;
     color: white;
-    border-radius: 6px;
-    font-size: 14px;
+    padding: 14px 20px;
+    margin: 0 8px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.arrow {
-    font-size: 20px;
-    color: #2c3e50;
+.controls button:hover {
+    background: rgba(255,255,255,0.4);
 }
 
-.footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 13px;
-    color: #777;
+/* ===== TOGGLE ===== */
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<button class="mode-toggle" onclick="toggleMode()">
+    <i class="fas fa-moon"></i>
+</button>
 
-<h2>IT Infrastruktur</h2>
+<div class="slider" id="slider">
 
-<p>
-IT infrastruktur adalah dasar dari semua sistem teknologi informasi.
-Sistem ini terdiri dari perangkat keras, jaringan, dan aplikasi
-yang digunakan untuk mengelola data agar dapat berjalan dengan baik.
-</p>
-
-<p>
-Dalam sistem modern, GitHub digunakan sebagai tempat penyimpanan
-dan pengelolaan source code sehingga menjadi bagian dari
-IT infrastruktur berbasis cloud.
-</p>
-
-<h3>IT Infrastruktur dan Security</h3>
-<p>
-Security sangat penting untuk melindungi data, sistem, dan aplikasi
-dari akses yang tidak sah. Tanpa keamanan yang baik,
-data bisa bocor dan sistem dapat disalahgunakan.
-</p>
-
-<h3>Diagram Sederhana IT Infrastruktur</h3>
-
-<div class="diagram">
-    <div class="box">Pengguna</div>
-    <div class="arrow">↓</div>
-    <div class="box">Perangkat<br>PC Laptop HP</div>
-    <div class="arrow">↓</div>
-    <div class="box">Jaringan<br>WiFi Internet</div>
-    <div class="arrow">↓</div>
-    <div class="box">GitHub<br>Repository</div>
-    <div class="arrow">↓</div>
-    <div class="box">Server Cloud<br>Aplikasi Database</div>
+<!-- SLIDE 1 -->
+<div class="slide">
+    <div class="card">
+        <h1><i class="fas fa-network-wired icon"></i>IT Infrastruktur</h1>
+        <p>
+        IT infrastruktur adalah fondasi utama dari seluruh sistem teknologi informasi.
+        Infrastruktur ini mencakup perangkat keras, perangkat lunak, jaringan,
+        serta layanan pendukung yang memungkinkan sistem berjalan secara stabil,
+        aman, dan efisien.
+        </p>
+    </div>
 </div>
 
-<h3>Perkembangan IT Infrastruktur</h3>
-<p>
-Awalnya sistem IT hanya menggunakan komputer lokal.
-Kemudian berkembang menggunakan jaringan dan internet.
-Saat ini banyak organisasi menggunakan cloud dan GitHub
-karena lebih fleksibel dan mudah diakses dari mana saja.
-</p>
+<!-- SLIDE 2 -->
+<div class="slide">
+    <div class="card">
+        <h2><i class="fab fa-github icon"></i>GitHub dalam IT Infrastruktur</h2>
+        <p>
+        GitHub merupakan platform berbasis cloud yang digunakan untuk menyimpan
+        source code, mengelola versi aplikasi, serta mendukung kolaborasi antar developer.
+        GitHub menjadi bagian penting dari IT infrastruktur modern.
+        </p>
+    </div>
+</div>
 
-<h3>Aset IT dan Risikonya</h3>
-<p>
-Aset IT terdiri dari hardware, software, dan jaringan.
-Hardware berisiko rusak atau dicuri.
-Software berisiko terkena bug dan malware.
-Jaringan berisiko mengalami serangan dari pihak luar.
-</p>
+<!-- SLIDE 3 -->
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-shield-halved icon"></i>IT Infrastruktur dan Security</h2>
+        <p>
+        Security berfungsi untuk melindungi data dan sistem dari ancaman
+        seperti akses tidak sah, pencurian data, dan serangan siber.
+        Keamanan menjadi sangat penting karena sistem terhubung ke internet.
+        </p>
+    </div>
+</div>
 
-<h3>Pengelolaan Risiko</h3>
-<p>
-Risiko dapat dikurangi dengan mengatur hak akses pengguna,
-menggunakan password yang kuat, melakukan update sistem,
-serta melakukan backup data secara rutin.
-</p>
+<!-- SLIDE 4 -->
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-diagram-project icon"></i>Diagram IT Infrastruktur</h2>
+        <div class="diagram">
+            <div class="box"><i class="fas fa-user"></i><br>Pengguna</div>
+            <div class="box"><i class="fas fa-laptop"></i><br>Perangkat</div>
+            <div class="box"><i class="fas fa-wifi"></i><br>Jaringan</div>
+            <div class="box"><i class="fab fa-github"></i><br>GitHub</div>
+            <div class="box"><i class="fas fa-server"></i><br>Server</div>
+        </div>
+    </div>
+</div>
 
-<div class="footer">
-Resume IT Infrastruktur | Informatika
+<!-- SLIDE 5 -->
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-lock icon"></i>Pengelolaan Risiko</h2>
+        <p>
+        Risiko IT dapat dikelola dengan membatasi hak akses pengguna,
+        menggunakan password yang kuat, melakukan update sistem,
+        serta melakukan backup data secara rutin.
+        </p>
+        <p style="margin-top:20px; text-align:center;">
+        Terima kasih
+        </p>
+    </div>
 </div>
 
 </div>
+
+<!-- CONTROLS -->
+<div class="controls">
+    <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<script>
+let index = 0;
+const slider = document.getElementById("slider");
+
+function showSlide() {
+    slider.style.transform = "translateX(" + (-index * 100) + "%)";
+}
+
+function nextSlide() {
+    if (index < 4) index++;
+    showSlide();
+}
+
+function prevSlide() {
+    if (index > 0) index--;
+    showSlide();
+}
+
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
