@@ -4,29 +4,48 @@
 <meta charset="UTF-8">
 <title>Resume IT Infrastruktur</title>
 
-<!-- Font Awesome Icon -->
+<!-- ICON -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ====== GLOBAL STYLE ====== */
+/* ===== GLOBAL ===== */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f2f4f7;
     margin: 0;
     padding: 0;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.4s ease;
 }
 
 .container {
     max-width: 900px;
     margin: 60px auto;
-    background-color: #ffffff;
+    background: white;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: background 0.3s;
+    animation: fadeSlide 1s ease;
 }
 
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseIcon {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* ===== TEXT ===== */
 h2 {
     color: #2c3e50;
     border-bottom: 3px solid #3498db;
@@ -40,27 +59,39 @@ h3 {
 
 p {
     line-height: 1.9;
-    color: #333333;
+    color: #333;
     text-align: justify;
 }
 
-/* ====== DIAGRAM ====== */
+.icon-title {
+    color: #3498db;
+    margin-right: 8px;
+    animation: pulseIcon 2s infinite;
+}
+
+/* ===== DIAGRAM ===== */
 .diagram {
-    margin: 35px 0;
+    margin: 30px 0;
     padding: 25px;
-    background-color: #eef4ff;
+    background: #eef4ff;
     border-radius: 10px;
     text-align: center;
 }
 
 .box {
     display: inline-block;
-    background-color: #3498db;
+    background: #3498db;
     color: white;
     padding: 14px 20px;
     margin: 10px;
     border-radius: 8px;
     font-size: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
 .arrow {
@@ -69,7 +100,7 @@ p {
     color: #2c3e50;
 }
 
-/* ====== TOGGLE MODE ====== */
+/* ===== TOGGLE MODE ===== */
 .mode-toggle {
     position: fixed;
     top: 20px;
@@ -81,24 +112,28 @@ p {
     border-radius: 50%;
     cursor: pointer;
     font-size: 16px;
+    transition: transform 0.3s ease;
 }
 
-/* ====== FOOTER ====== */
+.mode-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+/* ===== FOOTER ===== */
 footer {
     margin-top: 50px;
     text-align: center;
     font-size: 14px;
-    color: #777777;
+    color: #777;
 }
 
-/* ====== DARK MODE ====== */
+/* ===== DARK MODE ===== */
 body.dark {
-    background-color: #121212;
+    background: #121212;
 }
 
 body.dark .container {
-    background-color: #1e1e1e;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.7);
+    background: #1e1e1e;
 }
 
 body.dark h2,
@@ -108,15 +143,11 @@ body.dark p {
 }
 
 body.dark .diagram {
-    background-color: #2a2a2a;
-}
-
-body.dark .arrow {
-    color: #e0e0e0;
+    background: #2a2a2a;
 }
 
 body.dark footer {
-    color: #aaaaaa;
+    color: #aaa;
 }
 </style>
 </head>
@@ -129,40 +160,29 @@ body.dark footer {
 
 <div class="container">
 
-<h2><i class="fas fa-network-wired"></i> IT Infrastruktur</h2>
+<h2><i class="fas fa-network-wired icon-title"></i>IT Infrastruktur</h2>
 
 <p>
-IT infrastruktur merupakan fondasi utama dari seluruh sistem teknologi informasi.
-Infrastruktur ini mencakup perangkat keras, perangkat lunak, jaringan, serta
-layanan pendukung yang digunakan untuk menjalankan dan mengelola sistem informasi.
-Tanpa IT infrastruktur yang baik, sistem tidak dapat berjalan secara optimal
-dan proses bisnis akan terganggu.
+IT infrastruktur merupakan fondasi utama dari sistem teknologi informasi.
+Infrastruktur ini mencakup perangkat keras, perangkat lunak, jaringan,
+serta layanan pendukung yang digunakan untuk mengelola data dan aplikasi.
+Tanpa IT infrastruktur yang baik, sistem tidak dapat berjalan secara optimal.
 </p>
 
 <p>
-Dalam perkembangan teknologi saat ini, IT infrastruktur tidak hanya terbatas
-pada perangkat fisik di dalam organisasi. Platform berbasis cloud seperti GitHub
-menjadi bagian penting karena digunakan untuk menyimpan source code, mengelola
-versi aplikasi, serta mendukung kerja sama antar pengembang secara online.
+Dalam sistem modern, penggunaan <i class="fab fa-github icon-title"></i>GitHub
+menjadi bagian dari IT infrastruktur berbasis cloud untuk menyimpan source code
+dan mendukung kolaborasi.
 </p>
 
-<h3><i class="fas fa-shield-alt"></i> IT Infrastruktur dan Security</h3>
-
+<h3><i class="fas fa-shield-halved icon-title"></i>IT Infrastruktur dan Security</h3>
 <p>
-Security atau keamanan merupakan aspek yang sangat penting dalam IT infrastruktur.
-Keamanan bertujuan untuk melindungi data, sistem, dan aplikasi dari ancaman seperti
-akses tidak sah, pencurian data, malware, dan serangan dari pihak luar.
-Jika keamanan tidak diperhatikan, maka kerugian yang ditimbulkan bisa sangat besar,
-baik dari sisi finansial maupun reputasi organisasi.
+Security berfungsi melindungi data dan sistem dari akses ilegal,
+pencurian data, dan serangan siber. Pengamanan yang baik
+menjadi keharusan karena sistem terhubung ke internet.
 </p>
 
-<p>
-Penggunaan GitHub juga memerlukan pengamanan yang baik, seperti pengaturan hak akses,
-penggunaan autentikasi dua langkah, serta pengelolaan repository agar source code
-tidak dapat diakses oleh pihak yang tidak berwenang.
-</p>
-
-<h3><i class="fas fa-diagram-project"></i> Diagram Sederhana IT Infrastruktur</h3>
+<h3><i class="fas fa-diagram-project icon-title"></i>Diagram IT Infrastruktur</h3>
 
 <div class="diagram">
     <div class="box"><i class="fas fa-user"></i><br>Pengguna</div>
@@ -176,42 +196,24 @@ tidak dapat diakses oleh pihak yang tidak berwenang.
     <div class="box"><i class="fas fa-server"></i><br>Server Cloud</div>
 </div>
 
-<h3><i class="fas fa-chart-line"></i> Perkembangan IT Infrastruktur</h3>
-
+<h3><i class="fas fa-chart-line icon-title"></i>Perkembangan IT Infrastruktur</h3>
 <p>
-Pada awalnya, sistem IT hanya menggunakan komputer lokal dan penyimpanan sederhana.
-Data disimpan pada satu perangkat dan tidak dapat diakses secara luas.
-Seiring waktu, teknologi jaringan berkembang sehingga sistem dapat terhubung
-melalui jaringan lokal dan internet.
+Perkembangan IT dimulai dari komputer lokal,
+kemudian berkembang ke jaringan dan internet,
+hingga saat ini menggunakan cloud dan platform online.
 </p>
 
+<h3><i class="fas fa-boxes-stacked icon-title"></i>Aset IT</h3>
 <p>
-Saat ini, IT infrastruktur berkembang ke arah cloud computing dan penggunaan
-platform online seperti GitHub. Perkembangan ini membuat sistem lebih fleksibel,
-mudah diakses dari berbagai lokasi, dan mendukung kolaborasi secara real time.
-Namun, perkembangan tersebut juga meningkatkan risiko keamanan yang harus
-dikelola dengan baik.
+Aset IT meliputi hardware, software, dan jaringan.
+Setiap aset memiliki risiko yang harus dikelola
+agar sistem tetap aman dan stabil.
 </p>
 
-<h3><i class="fas fa-box"></i> Aset IT dan Risiko</h3>
-
+<h3><i class="fas fa-lock icon-title"></i>Pengelolaan Risiko</h3>
 <p>
-Aset IT adalah semua komponen yang memiliki nilai dan mendukung operasional sistem.
-Aset ini meliputi hardware, software, dan jaringan.
-Hardware berisiko mengalami kerusakan fisik atau pencurian.
-Software berisiko terkena bug, malware, atau kesalahan konfigurasi.
-Jaringan berisiko mengalami serangan seperti penyadapan data dan hacking.
-</p>
-
-<h3><i class="fas fa-lock"></i> Pengelolaan Risiko IT</h3>
-
-<p>
-Pengelolaan risiko dilakukan untuk mengurangi kemungkinan terjadinya gangguan
-pada IT infrastruktur. Beberapa langkah yang dapat dilakukan antara lain
-membatasi hak akses pengguna, menggunakan password yang kuat, melakukan update
-sistem secara berkala, serta melakukan backup data secara rutin.
-Dengan pengelolaan risiko yang baik, IT infrastruktur dapat berjalan dengan
-aman dan stabil.
+Risiko dapat dikurangi dengan pembatasan akses,
+update sistem rutin, dan backup data secara berkala.
 </p>
 
 <footer>
