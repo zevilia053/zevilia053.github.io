@@ -1,176 +1,176 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IT Infrastruktur Presentation</title>
+<title>IT Infrastructure Presentation</title>
 
 <!-- ICON -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* ===== BACKGROUND ===== */
-body {
-    height: 100vh;
-    overflow: hidden;
-    background-image:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url("https://images.unsplash.com/photo-1518770660439-4636190af475");
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-/* ===== DARK MODE ===== */
-body.dark {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-        url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d");
+body{
+    height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at top, #00c6ff33, transparent),
+        linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    color:white;
 }
 
 /* ===== SLIDER ===== */
-.slider {
-    display: flex;
-    width: 500%;
-    height: 100vh;
-    transition: transform 0.8s ease-in-out;
+.slider{
+    display:flex;
+    width:600%;
+    height:100vh;
+    transition:transform 0.9s cubic-bezier(.77,0,.18,1);
 }
 
-.slide {
-    width: 100%;
-    padding: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.slide{
+    width:100%;
+    padding:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 /* ===== CARD ===== */
-.card {
-    max-width: 900px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(20px);
-    padding: 50px;
-    border-radius: 25px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    animation: fadeUp 1s ease;
+.card{
+    max-width:900px;
+    padding:55px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(22px);
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
+    animation:fadeUp 1s ease;
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* ===== TEXT ===== */
-h1 {
-    font-size: 38px;
-    margin-bottom: 20px;
+h1{
+    font-size:42px;
+    margin-bottom:20px;
 }
 
-h2 {
-    color: #ffd369;
-    margin-bottom: 20px;
+h2{
+    font-size:30px;
+    margin-bottom:18px;
+    color:#4fd1ff;
 }
 
-p {
-    line-height: 2;
-    font-size: 17px;
-    text-align: justify;
+p{
+    font-size:17px;
+    line-height:2;
+    text-align:justify;
 }
 
 /* ===== ICON ===== */
-.icon {
-    color: #ffd369;
-    margin-right: 12px;
-    animation: pulse 2s infinite;
+.icon{
+    color:#4fd1ff;
+    margin-right:12px;
+    animation:pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
 }
 
 /* ===== DIAGRAM ===== */
-.diagram {
-    margin-top: 25px;
-    text-align: center;
+.diagram{
+    margin-top:30px;
+    text-align:center;
 }
 
-.box {
-    display: inline-block;
-    padding: 14px 22px;
-    margin: 10px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.25);
-    transition: 0.3s;
+.box{
+    display:inline-block;
+    padding:15px 24px;
+    margin:12px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.22);
+    transition:0.3s;
 }
 
-.box:hover {
-    transform: translateY(-8px) scale(1.1);
+.box:hover{
+    transform:translateY(-10px) scale(1.15);
 }
 
 /* ===== CONTROLS ===== */
-.controls {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+.controls{
+    position:fixed;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
-.controls button {
-    background: rgba(255,255,255,0.25);
-    border: none;
-    color: white;
-    padding: 14px 20px;
-    margin: 0 8px;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
+.controls button{
+    background:rgba(255,255,255,0.25);
+    border:none;
+    color:white;
+    padding:14px 18px;
+    margin:0 8px;
+    border-radius:50%;
+    font-size:18px;
+    cursor:pointer;
 }
 
-.controls button:hover {
-    background: rgba(255,255,255,0.4);
+/* ===== DOTS ===== */
+.dots{
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
-/* ===== TOGGLE ===== */
-.mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.25);
-    border: none;
-    color: white;
-    padding: 14px;
-    border-radius: 50%;
-    cursor: pointer;
+.dot{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    margin:0 6px;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#4fd1ff;
+}
+
+/* ===== WELCOME ===== */
+.welcome{
+    text-align:center;
+}
+
+.welcome i{
+    font-size:60px;
+    margin-bottom:25px;
 }
 </style>
 </head>
 
 <body>
 
-<button class="mode-toggle" onclick="toggleMode()">
-    <i class="fas fa-moon"></i>
-</button>
-
 <div class="slider" id="slider">
 
 <!-- SLIDE 1 -->
 <div class="slide">
-    <div class="card">
-        <h1><i class="fas fa-network-wired icon"></i>IT Infrastruktur</h1>
-        <p>
-        IT infrastruktur adalah fondasi utama dari seluruh sistem teknologi informasi.
-        Infrastruktur ini mencakup perangkat keras, perangkat lunak, jaringan,
-        serta layanan pendukung yang memungkinkan sistem berjalan secara stabil,
-        aman, dan efisien.
+    <div class="card welcome">
+        <i class="fas fa-globe icon"></i>
+        <h1>Welcome to IT Infrastructure</h1>
+        <p style="text-align:center">
+        Let us explore the foundation of modern information technology systems
         </p>
     </div>
 </div>
@@ -178,11 +178,11 @@ p {
 <!-- SLIDE 2 -->
 <div class="slide">
     <div class="card">
-        <h2><i class="fab fa-github icon"></i>GitHub dalam IT Infrastruktur</h2>
+        <h2><i class="fas fa-network-wired icon"></i>What is IT Infrastructure</h2>
         <p>
-        GitHub merupakan platform berbasis cloud yang digunakan untuk menyimpan
-        source code, mengelola versi aplikasi, serta mendukung kolaborasi antar developer.
-        GitHub menjadi bagian penting dari IT infrastruktur modern.
+        IT infrastructure is the core foundation of information technology systems.
+        It includes hardware, software, networks, and supporting services
+        that enable systems to operate efficiently and reliably.
         </p>
     </div>
 </div>
@@ -190,11 +190,11 @@ p {
 <!-- SLIDE 3 -->
 <div class="slide">
     <div class="card">
-        <h2><i class="fas fa-shield-halved icon"></i>IT Infrastruktur dan Security</h2>
+        <h2><i class="fab fa-github icon"></i>GitHub in IT Infrastructure</h2>
         <p>
-        Security berfungsi untuk melindungi data dan sistem dari ancaman
-        seperti akses tidak sah, pencurian data, dan serangan siber.
-        Keamanan menjadi sangat penting karena sistem terhubung ke internet.
+        GitHub is a cloud based platform used to store source code,
+        manage application versions, and support collaboration
+        between developers in modern IT environments.
         </p>
     </div>
 </div>
@@ -202,28 +202,41 @@ p {
 <!-- SLIDE 4 -->
 <div class="slide">
     <div class="card">
-        <h2><i class="fas fa-diagram-project icon"></i>Diagram IT Infrastruktur</h2>
-        <div class="diagram">
-            <div class="box"><i class="fas fa-user"></i><br>Pengguna</div>
-            <div class="box"><i class="fas fa-laptop"></i><br>Perangkat</div>
-            <div class="box"><i class="fas fa-wifi"></i><br>Jaringan</div>
-            <div class="box"><i class="fab fa-github"></i><br>GitHub</div>
-            <div class="box"><i class="fas fa-server"></i><br>Server</div>
-        </div>
+        <h2><i class="fas fa-shield-halved icon"></i>IT Infrastructure and Security</h2>
+        <p>
+        Security plays a crucial role in protecting systems and data
+        from threats such as unauthorized access, data breaches,
+        and cyber attacks in connected environments.
+        </p>
     </div>
 </div>
 
 <!-- SLIDE 5 -->
 <div class="slide">
     <div class="card">
-        <h2><i class="fas fa-lock icon"></i>Pengelolaan Risiko</h2>
+        <h2><i class="fas fa-diagram-project icon"></i>IT Infrastructure Diagram</h2>
+        <div class="diagram">
+            <div class="box"><i class="fas fa-user"></i><br>User</div>
+            <div class="box"><i class="fas fa-laptop"></i><br>Device</div>
+            <div class="box"><i class="fas fa-wifi"></i><br>Network</div>
+            <div class="box"><i class="fab fa-github"></i><br>GitHub</div>
+            <div class="box"><i class="fas fa-server"></i><br>Server</div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-lock icon"></i>Risk Management</h2>
         <p>
-        Risiko IT dapat dikelola dengan membatasi hak akses pengguna,
-        menggunakan password yang kuat, melakukan update sistem,
-        serta melakukan backup data secara rutin.
+        IT risks can be reduced by controlling user access,
+        using strong authentication,
+        performing regular system updates,
+        and backing up data periodically.
         </p>
-        <p style="margin-top:20px; text-align:center;">
-        Terima kasih
+        <p style="text-align:center;margin-top:20px">
+        Thank you
         </p>
     </div>
 </div>
@@ -236,26 +249,52 @@ p {
     <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
 </div>
 
+<!-- DOTS -->
+<div class="dots" id="dots"></div>
+
 <script>
 let index = 0;
 const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
+const totalSlides = 6;
 
-function showSlide() {
-    slider.style.transform = "translateX(" + (-index * 100) + "%)";
+/* DOTS */
+for(let i=0;i<totalSlides;i++){
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if(i===0) dot.classList.add("active");
+    dot.onclick = ()=>{ index=i; showSlide(); resetAuto(); };
+    dotsContainer.appendChild(dot);
 }
 
-function nextSlide() {
-    if (index < 4) index++;
+function showSlide(){
+    slider.style.transform = "translateX(" + (-index*100) + "%)";
+    document.querySelectorAll(".dot").forEach((d,i)=>{
+        d.classList.toggle("active", i===index);
+    });
+}
+
+function nextSlide(){
+    index = (index + 1) % totalSlides;
     showSlide();
 }
 
-function prevSlide() {
-    if (index > 0) index--;
+function prevSlide(){
+    index = (index - 1 + totalSlides) % totalSlides;
     showSlide();
 }
 
-function toggleMode() {
-    document.body.classList.toggle("dark");
+/* KEYBOARD */
+document.addEventListener("keydown", e=>{
+    if(e.key === "ArrowRight") nextSlide();
+    if(e.key === "ArrowLeft") prevSlide();
+});
+
+/* AUTO SLIDE */
+let auto = setInterval(nextSlide, 6000);
+function resetAuto(){
+    clearInterval(auto);
+    auto = setInterval(nextSlide, 6000);
 }
 </script>
 
