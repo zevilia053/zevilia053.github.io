@@ -1,4 +1,3 @@
-# zevilia053.github.io 
 <h2>IT Infrastruktur</h2>
 
 <p>
@@ -28,4 +27,3 @@ dari komputer lokal ke cloud dan GitHub.
 <p>
 Aset IT meliputi hardware, software, dan jaringan
 yang semuanya memiliki risiko masing masing.
-</p>
