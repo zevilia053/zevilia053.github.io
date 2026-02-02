@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IT Infrastructure & Java</title>
+<title>IT Infrastructure Presentation</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -11,37 +11,46 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===== FIRE BACKGROUND ===== */
+/* ===== ANIMATED BACKGROUND ===== */
 body{
     height:100vh;
     overflow:hidden;
-    background:#050000;
-    color:#fff;
+    color:white;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1b2735);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
 }
 
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== PARTICLES ===== */
 body::before{
     content:"";
     position:fixed;
-    inset:-30%;
+    inset:0;
     background:
-        radial-gradient(circle at 20% 30%, #ff000055, transparent 40%),
-        radial-gradient(circle at 80% 40%, #ff450055, transparent 40%),
-        radial-gradient(circle at 50% 80%, #ff000055, transparent 40%);
-    animation:fire 18s linear infinite;
-    filter:blur(70px);
-    z-index:-1;
+        radial-gradient(circle at 20% 30%, #4fd1ff55 2px, transparent 3px),
+        radial-gradient(circle at 80% 40%, #ffffff44 1.5px, transparent 3px),
+        radial-gradient(circle at 50% 80%, #4fd1ff44 2px, transparent 3px);
+    animation:float 12s linear infinite;
+    pointer-events:none;
 }
 
-@keyframes fire{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-60px);}
 }
 
 /* ===== SLIDER ===== */
 .slider-wrapper{
+    position:relative;
     width:100%;
     height:100vh;
     overflow:hidden;
@@ -50,58 +59,47 @@ body::before{
 .slider{
     display:flex;
     height:100%;
-    transition:transform 1s ease;
+    transition:transform 1s cubic-bezier(.77,0,.18,1);
 }
 
+/* ===== SLIDE ===== */
 .slide{
     min-width:100%;
     padding:90px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
 /* ===== CARD ===== */
 .card{
     max-width:900px;
-    padding:60px;
+    padding:55px;
     border-radius:30px;
-    background:rgba(0,0,0,0.65);
-    backdrop-filter:blur(20px);
-    box-shadow:0 0 120px rgba(255,0,0,0.35);
-    position:relative;
-    animation:fadeUp 1s ease;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(22px);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        0 0 60px #4fd1ff33;
+    animation:cardIn 1s ease;
 }
 
-.card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:30px;
-    padding:2px;
-    background:linear-gradient(135deg,#ff0000,#ff4500);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;
-}
-
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(50px);}
-    to{opacity:1;transform:translateY(0);}
+@keyframes cardIn{
+    from{opacity:0; transform:translateY(50px) scale(0.95);}
+    to{opacity:1; transform:translateY(0) scale(1);}
 }
 
 /* ===== TEXT ===== */
 h1{
-    font-size:46px;
+    font-size:42px;
+    margin-bottom:20px;
     text-align:center;
-    margin-bottom:25px;
 }
 
 h2{
     font-size:30px;
-    margin-bottom:20px;
-    color:#ff3b3b;
+    margin-bottom:18px;
+    color:#4fd1ff;
 }
 
 p{
@@ -110,86 +108,37 @@ p{
     text-align:justify;
 }
 
+/* ===== ICON ===== */
 .icon{
-    color:#ff3b3b;
-    margin-right:10px;
-    text-shadow:0 0 12px #ff0000;
+    color:#4fd1ff;
+    margin-right:12px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
 }
 
 /* ===== DIAGRAM ===== */
 .diagram{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    position:relative;
-}
-
-.node{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    background:#100000;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    margin-top:30px;
     text-align:center;
-    box-shadow:0 0 25px #ff000088;
-    animation:pulse 2.5s infinite;
-    z-index:2;
 }
 
-.node i{
-    font-size:28px;
-    color:#ff3b3b;
-    margin-bottom:8px;
+.box{
+    display:inline-block;
+    padding:15px 24px;
+    margin:12px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.22);
+    transition:0.3s;
 }
 
-.node span{
-    font-size:14px;
-}
-
-.node:hover{
-    transform:scale(1.15);
-    box-shadow:0 0 45px #ff0000;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 15px #ff000055;}
-    50%{box-shadow:0 0 40px #ff0000;}
-    100%{box-shadow:0 0 15px #ff000055;}
-}
-
-/* ===== CONNECTION LINES ===== */
-.line{
-    position:absolute;
-    height:4px;
-    background:linear-gradient(90deg,#ff0000,transparent);
-    animation:flow 2s linear infinite;
-    z-index:1;
-}
-
-@keyframes flow{
-    from{background-position:0;}
-    to{background-position:200px;}
-}
-
-/* ===== JAVA CODE ===== */
-pre{
-    background:#0d0000;
-    padding:25px;
-    border-radius:20px;
-    margin-top:25px;
-    overflow:auto;
-    box-shadow:inset 0 0 25px rgba(255,0,0,0.3);
-}
-
-code{
-    color:#ff8080;
-    font-size:15px;
-    line-height:1.8;
+.box:hover{
+    transform:translateY(-10px) scale(1.15);
+    box-shadow:0 0 25px #4fd1ff55;
 }
 
 /* ===== CONTROLS ===== */
@@ -201,18 +150,14 @@ code{
 }
 
 .controls button{
-    background:#1a0000;
+    background:rgba(255,255,255,0.25);
     border:none;
-    color:#fff;
-    padding:14px 20px;
-    margin:0 10px;
+    color:white;
+    padding:14px 18px;
+    margin:0 8px;
     border-radius:50%;
+    font-size:18px;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.controls button:hover{
-    background:#ff0000;
 }
 
 /* ===== DOTS ===== */
@@ -224,18 +169,29 @@ code{
 }
 
 .dot{
-    width:14px;
-    height:14px;
-    background:#440000;
+    width:12px;
+    height:12px;
+    background:rgba(255,255,255,0.4);
     border-radius:50%;
     display:inline-block;
     margin:0 6px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .dot.active{
-    background:#ff0000;
-    box-shadow:0 0 12px #ff0000;
+    background:#4fd1ff;
+    transform:scale(1.4);
+    box-shadow:0 0 10px #4fd1ff;
+}
+
+/* ===== WELCOME ===== */
+.welcome{
+    text-align:center;
+}
+.welcome i{
+    font-size:64px;
+    margin-bottom:25px;
 }
 </style>
 </head>
@@ -245,112 +201,127 @@ code{
 <div class="slider-wrapper">
 <div class="slider" id="slider">
 
-<!-- SLIDE 1 -->
 <div class="slide">
-<div class="card">
-<h1><i class="fas fa-fire icon"></i>Welcome to IT Infrastructure</h1>
-<p style="text-align:center">The backbone of modern digital systems</p>
-</div>
+    <div class="card welcome">
+        <i class="fas fa-globe icon"></i>
+        <h1>Welcome to IT Infrastructure</h1>
+        <p style="text-align:center">
+        Discover the foundation of modern information technology
+        </p>
+    </div>
 </div>
 
-<!-- SLIDE 2 -->
 <div class="slide">
-<div class="card">
-<h2><i class="fas fa-network-wired icon"></i>Infrastructure Overview</h2>
-<p>
-IT infrastructure connects users, devices, networks,
-cloud services, and servers into a single integrated system.
-</p>
-
-<div class="diagram">
-    <div class="node"><i class="fas fa-user"></i><span>User</span></div>
-    <div class="node"><i class="fas fa-laptop"></i><span>Device</span></div>
-    <div class="node"><i class="fas fa-wifi"></i><span>Network</span></div>
-    <div class="node"><i class="fab fa-github"></i><span>GitHub</span></div>
-    <div class="node"><i class="fas fa-server"></i><span>Server</span></div>
+    <div class="card">
+        <h2><i class="fas fa-network-wired icon"></i>What is IT Infrastructure</h2>
+        <p>
+        IT infrastructure is the backbone of information technology systems.
+        It includes hardware, software, networks, and services
+        that ensure systems operate reliably and efficiently.
+        </p>
+    </div>
 </div>
 
-</div>
-</div>
-
-<!-- SLIDE 3 -->
 <div class="slide">
-<div class="card">
-<h2><i class="fab fa-java icon"></i>Java in Infrastructure</h2>
-<p>
-Java is widely used in enterprise systems,
-servers, and monitoring tools within IT infrastructure.
-</p>
-
-<pre><code>
-public class InfrastructureMonitor {
-
-    public static void main(String[] args) {
-        System.out.println(checkSystem());
-    }
-
-    public static String checkSystem() {
-        return "Infrastructure is running securely";
-    }
-}
-</code></pre>
-
-</div>
+    <div class="card">
+        <h2><i class="fab fa-github icon"></i>GitHub in IT Infrastructure</h2>
+        <p>
+        GitHub is a cloud based platform that stores source code,
+        manages versions, and enables collaboration
+        in modern software development environments.
+        </p>
+    </div>
 </div>
 
-<!-- SLIDE 4 -->
 <div class="slide">
-<div class="card">
-<h2><i class="fas fa-lock icon"></i>Security</h2>
-<p>
-Security ensures confidentiality, integrity,
-and availability of IT assets through strong controls.
-</p>
+    <div class="card">
+        <h2><i class="fas fa-shield-halved icon"></i>Infrastructure Security</h2>
+        <p>
+        Security protects systems and data from cyber threats,
+        unauthorized access, and data loss.
+        It is essential in connected IT infrastructures.
+        </p>
+    </div>
 </div>
+
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-diagram-project icon"></i>Infrastructure Diagram</h2>
+        <div class="diagram">
+            <div class="box"><i class="fas fa-user"></i><br>User</div>
+            <div class="box"><i class="fas fa-laptop"></i><br>Device</div>
+            <div class="box"><i class="fas fa-wifi"></i><br>Network</div>
+            <div class="box"><i class="fab fa-github"></i><br>GitHub</div>
+            <div class="box"><i class="fas fa-server"></i><br>Server</div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="card">
+        <h2><i class="fas fa-lock icon"></i>Risk Management</h2>
+        <p>
+        IT risks can be minimized through access control,
+        strong authentication, system updates,
+        and regular data backups.
+        </p>
+        <p style="text-align:center;margin-top:20px">
+        Thank you
+        </p>
+    </div>
 </div>
 
 </div>
 </div>
 
 <div class="controls">
-<button onclick="prev()"><i class="fas fa-chevron-left"></i></button>
-<button onclick="next()"><i class="fas fa-chevron-right"></i></button>
+    <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
 </div>
 
 <div class="dots" id="dots"></div>
 
 <script>
-let index=0;
-const slider=document.getElementById("slider");
-const slides=document.querySelectorAll(".slide").length;
-const dots=document.getElementById("dots");
+let index = 0;
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
+const slides = document.querySelectorAll(".slide").length;
 
+/* DOTS */
 for(let i=0;i<slides;i++){
-    let d=document.createElement("span");
-    d.className="dot"+(i===0?" active":"");
-    d.onclick=()=>{index=i;update();};
-    dots.appendChild(d);
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if(i===0) dot.classList.add("active");
+    dot.onclick = ()=>{ index=i; update(); resetAuto(); };
+    dotsContainer.appendChild(dot);
 }
 
 function update(){
-    slider.style.transform=`translateX(-${index*100}%)`;
+    slider.style.transform = `translateX(-${index*100}%)`;
     document.querySelectorAll(".dot").forEach((d,i)=>{
-        d.classList.toggle("active",i===index);
+        d.classList.toggle("active", i===index);
     });
 }
 
-function next(){ if(index<slides-1){index++;update();} }
-function prev(){ if(index>0){index--;update();} }
+function nextSlide(){
+    if(index < slides-1){ index++; update(); }
+}
 
-document.addEventListener("keydown",e=>{
-    if(e.key==="ArrowRight")next();
-    if(e.key==="ArrowLeft")prev();
+function prevSlide(){
+    if(index > 0){ index--; update(); }
+}
+
+document.addEventListener("keydown", e=>{
+    if(e.key==="ArrowRight") nextSlide();
+    if(e.key==="ArrowLeft") prevSlide();
 });
 
-setInterval(()=>{
-    index=(index+1)%slides;
-    update();
-},7000);
+/* AUTO */
+let auto=setInterval(()=>{ index=(index+1)%slides; update(); },6000);
+function resetAuto(){
+    clearInterval(auto);
+    auto=setInterval(()=>{ index=(index+1)%slides; update(); },6000);
+}
 </script>
 
 </body>
