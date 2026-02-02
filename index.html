@@ -2,214 +2,140 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>IT Infrastruktur</title>
-
-<!-- ICON -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Resume IT Infrastruktur</title>
 
 <style>
-/* ================= WALLPAPER + PARALLAX ================= */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
-    background-image:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1518770660439-4636190af475");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
+    padding: 0;
 }
 
-/* ================= TOGGLE ================= */
-.mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.25);
-    border: none;
-    color: white;
-    padding: 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
-    z-index: 1000;
-}
-
-.mode-toggle:hover {
-    transform: rotate(20deg) scale(1.15);
-}
-
-/* ================= CONTAINER ================= */
 .container {
-    max-width: 950px;
-    margin: 100px auto;
-    padding: 45px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(18px);
-    border-radius: 25px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    animation: fadeUp 1.3s ease;
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================= TEXT ================= */
 h2 {
-    font-size: 34px;
-    border-bottom: 3px solid rgba(255,255,255,0.6);
-    padding-bottom: 12px;
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 8px;
 }
 
 h3 {
-    margin-top: 45px;
-    color: #ffd369;
+    color: #2980b9;
+    margin-top: 30px;
 }
 
 p {
-    line-height: 2;
-    text-align: justify;
-    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
 }
 
-/* ================= ICON ================= */
-.icon {
-    color: #ffd369;
-    margin-right: 10px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
-
-/* ================= DIAGRAM ================= */
 .diagram {
+    margin: 30px 0;
+    padding: 20px;
+    background: #ecf3ff;
+    border-radius: 8px;
     text-align: center;
-    margin-top: 35px;
 }
 
 .box {
     display: inline-block;
-    padding: 16px 24px;
-    margin: 12px;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.box:hover {
-    transform: translateY(-10px) scale(1.08);
-    background: rgba(255,255,255,0.4);
+    padding: 12px 18px;
+    margin: 10px;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 .arrow {
-    font-size: 24px;
-    margin: 5px 0;
+    font-size: 20px;
+    color: #2c3e50;
 }
 
-/* ================= FOOTER ================= */
-footer {
-    margin-top: 60px;
+.footer {
+    margin-top: 40px;
     text-align: center;
-    opacity: 0.8;
-}
-
-/* ================= DARK MODE ================= */
-body.dark {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-        url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d");
+    font-size: 13px;
+    color: #777;
 }
 </style>
 </head>
 
 <body>
 
-<button class="mode-toggle" onclick="toggleMode()">
-    <i class="fas fa-moon"></i>
-</button>
-
 <div class="container">
 
-<h2><i class="fas fa-network-wired icon"></i>IT Infrastruktur</h2>
+<h2>IT Infrastruktur</h2>
 
 <p>
-IT infrastruktur merupakan fondasi utama dari sistem teknologi informasi.
-Infrastruktur ini mencakup perangkat keras, perangkat lunak, jaringan,
-dan layanan pendukung yang memungkinkan sistem berjalan dengan stabil,
-aman, dan efisien.
+IT infrastruktur adalah dasar dari semua sistem teknologi informasi.
+Sistem ini terdiri dari perangkat keras, jaringan, dan aplikasi
+yang digunakan untuk mengelola data agar dapat berjalan dengan baik.
 </p>
 
 <p>
-Dalam perkembangan teknologi saat ini,
-<i class="fab fa-github icon"></i>GitHub
-menjadi bagian dari IT infrastruktur modern berbasis cloud.
-GitHub digunakan untuk menyimpan source code, mengelola versi aplikasi,
-dan mendukung kolaborasi antar pengembang secara online.
+Dalam sistem modern, GitHub digunakan sebagai tempat penyimpanan
+dan pengelolaan source code sehingga menjadi bagian dari
+IT infrastruktur berbasis cloud.
 </p>
 
-<h3><i class="fas fa-shield-halved icon"></i>IT Infrastruktur dan Security</h3>
-
+<h3>IT Infrastruktur dan Security</h3>
 <p>
-Security berperan penting dalam melindungi data dan sistem
-dari ancaman seperti akses tidak sah, pencurian data,
-dan serangan siber. Sistem yang terhubung ke internet
-harus memiliki pengamanan yang baik agar tetap aman.
+Security sangat penting untuk melindungi data, sistem, dan aplikasi
+dari akses yang tidak sah. Tanpa keamanan yang baik,
+data bisa bocor dan sistem dapat disalahgunakan.
 </p>
 
-<h3><i class="fas fa-diagram-project icon"></i>Diagram IT Infrastruktur</h3>
+<h3>Diagram Sederhana IT Infrastruktur</h3>
 
 <div class="diagram">
-    <div class="box"><i class="fas fa-user"></i><br>Pengguna</div>
+    <div class="box">Pengguna</div>
     <div class="arrow">↓</div>
-    <div class="box"><i class="fas fa-laptop"></i><br>Perangkat</div>
+    <div class="box">Perangkat<br>PC Laptop HP</div>
     <div class="arrow">↓</div>
-    <div class="box"><i class="fas fa-wifi"></i><br>Jaringan</div>
+    <div class="box">Jaringan<br>WiFi Internet</div>
     <div class="arrow">↓</div>
-    <div class="box"><i class="fab fa-github"></i><br>GitHub</div>
+    <div class="box">GitHub<br>Repository</div>
     <div class="arrow">↓</div>
-    <div class="box"><i class="fas fa-server"></i><br>Server Cloud</div>
+    <div class="box">Server Cloud<br>Aplikasi Database</div>
 </div>
 
-<h3><i class="fas fa-chart-line icon"></i>Perkembangan IT Infrastruktur</h3>
-
+<h3>Perkembangan IT Infrastruktur</h3>
 <p>
-IT infrastruktur berkembang dari sistem komputer lokal,
-kemudian terhubung melalui jaringan dan internet,
-hingga saat ini menggunakan cloud computing.
-Perkembangan ini membuat sistem lebih fleksibel,
-namun juga meningkatkan risiko keamanan.
+Awalnya sistem IT hanya menggunakan komputer lokal.
+Kemudian berkembang menggunakan jaringan dan internet.
+Saat ini banyak organisasi menggunakan cloud dan GitHub
+karena lebih fleksibel dan mudah diakses dari mana saja.
 </p>
 
-<h3><i class="fas fa-lock icon"></i>Pengelolaan Risiko</h3>
-
+<h3>Aset IT dan Risikonya</h3>
 <p>
-Pengelolaan risiko dilakukan dengan membatasi hak akses pengguna,
-menggunakan password yang kuat,
-melakukan update sistem secara rutin,
-serta melakukan backup data secara berkala.
+Aset IT terdiri dari hardware, software, dan jaringan.
+Hardware berisiko rusak atau dicuri.
+Software berisiko terkena bug dan malware.
+Jaringan berisiko mengalami serangan dari pihak luar.
 </p>
 
-<footer>
-<i class="fas fa-code"></i> Resume IT Infrastruktur
-</footer>
+<h3>Pengelolaan Risiko</h3>
+<p>
+Risiko dapat dikurangi dengan mengatur hak akses pengguna,
+menggunakan password yang kuat, melakukan update sistem,
+serta melakukan backup data secara rutin.
+</p>
 
+<div class="footer">
+Resume IT Infrastruktur | Informatika
 </div>
 
-<script>
-function toggleMode() {
-    document.body.classList.toggle("dark");
-}
-</script>
+</div>
 
 </body>
 </html>
